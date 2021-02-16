@@ -1,20 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./App.css";
 
-function App() {
-  const [data, setData] = useState(null);
-  useEffect(() => {
-    async function getData() {
-      let response = await fetch("/api");
-      let data = await response.json();
+import Weather from "./components/Weather";
 
-      setData(data.message);
-    }
-    getData();
-  }, []);
+function App() {
   return (
     <div>
-      <p>{!data ? "Loading..." : data}</p>
+      <Weather />
     </div>
   );
 }

@@ -9,9 +9,8 @@ function Searchbar(props) {
 
   return (
     <div>
-      <form onSubmit={updatesSetPlace}>
+      <form className="search-form" onSubmit={updatesSetPlace}>
         <input
-          style={{ width: "200px", textAlign: "center" }}
           type="text"
           name="search"
           autoComplete="off"

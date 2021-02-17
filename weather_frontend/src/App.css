@@ -1,1 +1,13 @@
+.search-form {
+  margin-top: 2em;
+  text-align: center;
+}
+.search-form input {
+  width: 200px;
+}
 
+.current-cond-container {
+  border: 1px solid black;
+  padding: 10px;
+  width: fit-content;
+}

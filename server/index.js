@@ -7,8 +7,7 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 app.use(morgan("combined"));
 app.get("/api/current-condition", async (req, res) => {
-  //   console.log(req.query);
-  let response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${req.query.q}&appid=${OPEN_WEATHER_API_KEY}
+  let response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${req.query.q}&units=imperial&units=metric&appid=${OPEN_WEATHER_API_KEY}
     `);
   res.status(response.status).json(await response.json());
   //   res.set("Content-type", "application/json");
@@ -17,7 +16,7 @@ app.get("/api/current-condition", async (req, res) => {
 app.get("/api/forecast", async (req, res) => {
   console.log(req.query);
   let response = await fetch(
-    `https://api.openweathermap.org/data/2.5/forecast?q=${req.query.q}&appid=${OPEN_WEATHER_API_KEY}`
+    `https://api.openweathermap.org/data/2.5/forecast?q=${req.query.q}&units=imperial&units=metric&appid=${OPEN_WEATHER_API_KEY}`
   );
   res.status(response.status).json(await response.json());
 });

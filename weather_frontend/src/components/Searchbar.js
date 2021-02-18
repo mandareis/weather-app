@@ -1,24 +1,39 @@
 import React, { useState } from "react";
 
+// figure out gap between input and Go button => DONE
+//style the X in the input field
+//@media for the searchbar when on smaller screens =? DONE
+//change text color to soft grey
 function Searchbar(props) {
   const [search, setSearch] = useState(props.place);
   const updatesSetPlace = (e) => {
     e.preventDefault();
     props.setPlace(search);
   };
-
   return (
-    <div>
-      <form className="search-form" onSubmit={updatesSetPlace}>
+    <div className="">
+      <div className="text-center sm:text-left m-8 ">
+        <span className="bg-clip-text text-transparent bg-indigo-600 bg-opacity-50 text-4xl sm:text-3xl  font-extrabold">
+          Weather App
+        </span>
+      </div>
+      <form onSubmit={updatesSetPlace} className="flex justify-center gap-2">
         <input
-          type="text"
+          className="bg-transparent rounded-lg text-gray-500 text-center w-1/2 sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 2xl:w-1/5 focus:outline-none ring-2 focus:ring-indigo-300 focus:border-transparent focus:shadow-md"
+          type="search"
           name="search"
           autoComplete="off"
           placeholder="Search by city or zipcode"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
-        <button type="submit">Go</button>
+
+        <button
+          className="py-2 px-4 font-semibold rounded-lg shadow-md hover:bg-indigo-200  text-white bg-indigo-600 bg-opacity-25 active:bg-indigo-300 focus:outline-none"
+          type="submit"
+        >
+          Go
+        </button>
       </form>
     </div>
   );

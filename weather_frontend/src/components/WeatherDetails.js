@@ -1,25 +1,68 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import Forecast from "./Forecast";
+import HourlyWeather from "./HourlyWeather";
+import moment from "moment";
 
-function WeatherDetails({ currentCondition }) {
-  console.log(currentCondition);
+function WeatherDetails({ weather }) {
+  const [defaultBtn, setDefaultBtn] = useState("hourly-btn");
+
+  console.log(weather);
+
+  //higher order function that first checks which button is being clicked, and arrow function updates the defaultBtn to the which is selected.
+  const onBtnClick = (which) => {
+    return () => {
+      setDefaultBtn(which);
+    };
+  };
+
+  // causes a re-render when location.name updates, and it updates defaultBtn back to Hourly
+  useEffect(() => {
+    setDefaultBtn("hourly-btn");
+  }, [weather.location.name]);
 
   return (
-    <div>
-      <div className="current-cond-container">
-        <p>
-          {currentCondition.name},{currentCondition.sys.country}
-        </p>
-        <p>{currentCondition.weather[0].description}</p>
-        <p>Local Time will go here {currentCondition.dt}</p>
-        <p>Current: {Math.round(currentCondition.main.temp)}&#176;</p>
-        <p>
-          Feels like: {Math.round(currentCondition.main.feels_like)}
-          &#176; &nbsp; Low: {Math.round(currentCondition.main.temp_min)}&#176;
-          &nbsp; High: {Math.round(currentCondition.main.temp_max)}&#176;
-        </p>
-        <p>Humidity: {currentCondition.main.humidity}%</p>
-        <p>Wind: {Math.round(currentCondition.wind.speed)} mph</p>
+    <div className="grid grid-cols-2">
+      <div>
+        <div className="container mx-auto text-gray-500 rounded-lg shadow-md">
+          <p>
+            {weather.location.name}, {weather.location.country}
+          </p>
+          <p>{weather.current.condition.text}</p>
+          <p>{moment(weather.location.localtime).format("LLLL ")}</p>
+          <p>
+            Current: {weather.current.temp_f}&#176;F / {weather.current.temp_c}
+            &#176;C
+          </p>
+          <p>
+            Feels like: {Math.round(weather.current.feelslike_f)}&#176;F /{" "}
+            {Math.round(weather.current.feelslike_c)}&#176;C &nbsp;
+          </p>
+          <p>Humidity: {weather.current.humidity}%</p>
+          <p>
+            Wind: {weather.current.wind_dir}{" "}
+            {Math.round(weather.current.wind_mph)} mph
+          </p>
+        </div>
+        <div className="flex flex-row gap-4">
+          <button
+            className="py-2 px-4 font-semibold rounded-lg shadow-md text-white bg-indigo-600 bg-opacity-25 hover:bg-indigo-200 active:bg-indigo-300 text-center sm:text-left focus:outline-none"
+            type="submit"
+            onClick={onBtnClick("hourly-btn")}
+          >
+            Hourly
+          </button>
+          <button
+            className="py-2 px-4 font-semibold rounded-lg shadow-md text-white bg-indigo-600 bg-opacity-25 hover:bg-indigo-200 active:bg-indigo-300  text-center sm:text-left focus:outline-none"
+            type="submit"
+            onClick={onBtnClick("day-btn")}
+          >
+            3 Day
+          </button>
+        </div>
       </div>
+      {defaultBtn === "hourly-btn" ? <HourlyWeather weather={weather} /> : null}
+
+      {defaultBtn === "day-btn" ? <Forecast weather={weather} /> : null}
     </div>
   );
 }

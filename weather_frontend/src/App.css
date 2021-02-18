@@ -1,4 +1,4 @@
-.search-form {
+/* .search-form {
   margin-top: 2em;
   text-align: center;
 }
@@ -6,8 +6,31 @@
   width: 200px;
 }
 
+.weather-details {
+  display: inline-flex;
+}
 .current-cond-container {
   border: 1px solid black;
   padding: 10px;
+
   width: fit-content;
 }
+
+.forecast-div {
+  text-align: center;
+  border: 1px solid black;
+  margin-right: 1em;
+
+  width: 180px;
+  height: 180px;
+}
+
+.weather-container {
+  display: grid;
+  text-align: center;
+}
+.weather-div {
+  display: flex;
+}
+.weather-details-btns {
+} */

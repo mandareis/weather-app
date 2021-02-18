@@ -1,25 +1,23 @@
 import React, { useState, useEffect } from "react";
-import Searchbar from "./Searchbar";
 import WeatherDetails from "./WeatherDetails";
 
-function Weather() {
-  const [forecast, setForecast] = useState();
-  const [currentCondition, setCurrentCondition] = useState();
+function Weather({ place }) {
+  const [weather, setWeather] = useState();
   const [isLoading, setIsLoading] = useState(true);
-  const [place, setPlace] = useState("San Francisco");
+
   const [err, setErr] = useState(null);
   useEffect(() => {
-    async function getForecast() {
+    async function getWeather() {
       try {
-        let response = await fetch(`/api/forecast?q=${place}`);
+        let response = await fetch(`/api/weather?q=${place}`);
         let data = await response.json();
         setErr(null);
-        console.log(response.status, data);
+        // console.log(response.status, data);
 
         if (!response.ok) {
           setErr("Failed to locate city.");
         } else {
-          setForecast(data);
+          setWeather(data);
         }
       } catch (e) {
         setErr(e.message);
@@ -27,42 +25,13 @@ function Weather() {
         setIsLoading(false);
       }
     }
-    getForecast();
-  }, [place]);
-  useEffect(() => {
-    async function getCurrentCondition() {
-      try {
-        let response = await fetch(`/api/current-condition?q=${place}`);
-        let data = await response.json();
-        setErr(null);
-        console.log(response.status, data);
-        if (!response.ok) {
-          setErr("Failed to locate city.");
-        } else {
-          setCurrentCondition(data);
-        }
-      } catch (e) {
-        setErr(e.message);
-      } finally {
-        setIsLoading(false);
-      }
-    }
-    getCurrentCondition();
+    getWeather();
   }, [place]);
 
   return (
-    <div>
-      <Searchbar place={place} setPlace={setPlace} />
-      {err || isLoading ? null : (
-        <WeatherDetails
-          forecast={forecast}
-          place={place}
-          currentCondition={currentCondition}
-        />
-      )}
+    <div className=" ">
+      {err || isLoading ? null : <WeatherDetails weather={weather} />}
       {err && <p>{err}</p>}
-      {/* <pre>{JSON.stringify(forecast, null, 2)}</pre>
-      <pre>{JSON.stringify(currentCondition, null, 2)}</pre> */}
     </div>
   );
 }

@@ -19,6 +19,7 @@ function getScreenSize() {
 
 function HourlyWeather({ weather }) {
   const [screenSize, setScreenSize] = useState(getScreenSize());
+
   let hourly = weather.forecast.forecastday[0];
   useEffect(() => {
     // set up "screen resized" event listener
@@ -37,29 +38,57 @@ function HourlyWeather({ weather }) {
   }, [screenSize]);
 
   //turn this into a switch case?
-  let graph = null;
-  if (screenSize === "sm") {
-    graph = "h-80 w-full";
-  }
-  if (screenSize === "md") {
-    graph = "h-96 w-full";
-  }
-  if (
-    screenSize === "lg" &&
-    screenSize === "xl" &&
-    screenSize === "2xl" &&
-    screenSize === "mega"
-  ) {
-    graph = "h-1/2 w-full";
-  }
+  //   let graph = null;
+  //   if (screenSize === "sm") {
+  //     graph = "h-80 w-full";
+  //   }
+  //   if (screenSize === "md") {
+  //     graph = "md:h-96 md:w-full";
+  //   }
+  //   if (
+  //     screenSize === "lg" ||
+  //     screenSize === "xl" ||
+  //     screenSize === "2xl" ||
+  //     screenSize === "mega"
+  //   ) {
+  //     graph = "h-1/2 w-full";
+  //   }
+  //   console.log(`graph = ${graph}`);
   //   console.log(hourly.hour);
 
   //   return parseInt(moment(i.time).format("H")) % 3 === 0;
+  //
+  var height = "250px";
+  var width = "";
+  switch (screenSize) {
+    case "mega":
+    case "2xl":
+    case "xl":
+      height = "300px";
+      width = "650px";
+      break;
+    case "lg":
+      width = "700px";
+      break;
+    case "md":
+      width = "600px";
+      break;
+    case "sm":
+      // on sm screens we need to be a bit
+      // more dynamic, so use 90% of viewport
+      // width
+      width = "90vw";
+      break;
+    default:
+      throw new Error(`unknown screenSize: '${screenSize}'`);
+  }
 
   return (
     <>
       <div
-        className={`sm:h-80 sm:w-full md:h-96 md:w-full ${graph}`}
+        style={{ height: height, width: width }}
+        // className={`relative sm:h-80 sm:w-full md:h-96 md:w-full ${graph}`}
+        className=""
         // place-content-center
 
         //find a way to add a size to the graph using tailwinds

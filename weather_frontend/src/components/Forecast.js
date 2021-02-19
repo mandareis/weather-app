@@ -9,7 +9,7 @@ function Forecast({ weather }) {
           <div
             //how to add a fixed size to these divs
             //find a way to make text smaller when on mobile
-            className="p-2 md:p-4 rounded-md border-4 h-auto w-auto sm:h-auto sm:w-auto md:w-auto md:h-auto lg:h-48 lg:w-48 border-blue-500 border-opacity-25 hover:border-indigo-300 border-opacity-25 hover:shadow-md text-sm md:text-lg"
+            className="transition duration-500 ease-in-out  p-2 md:p-4 rounded-md border-4 h-auto w-auto sm:h-auto sm:w-auto md:w-auto md:h-auto lg:h-48 lg:w-48 border-blue-500 border-opacity-25 hover:border-indigo-300 border-opacity-25 hover:shadow-md text-sm md:text-lg transform hover:-translate-y-1 hover:scale-110"
             key={idx}
           >
             <p>{moment(day.date).format("ddd DD ")}</p>

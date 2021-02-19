@@ -13,7 +13,7 @@ function Searchbar(props) {
   return (
     <div className="">
       <div className="text-center sm:text-left p-4">
-        <span className="bg-clip-text text-transparent bg-indigo-600 bg-opacity-50 text-4xl sm:text-3xl  font-extrabold">
+        <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-800 bg-opacity-50 text-4xl sm:text-4xl font-extrabold">
           Weather App
         </span>
       </div>

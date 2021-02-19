@@ -21,8 +21,8 @@ function WeatherDetails({ weather }) {
   }, [weather.location.name]);
 
   return (
-    <div className="container lg:inline-flex gap-4 p-4 ">
-      <div className=" container mx-auto text-blue-800 border-4 border-blue-500 border-opacity-25 shadow-md bg-indigo-200 md:w-3/5   rounded-lg p-4 text-center">
+    <div className="container lg:inline-flex">
+      <div className=" container mx-auto text-blue-800 border-4 border-blue-500 border-opacity-25 shadow-md bg-indigo-200 md:w-3/5 rounded-lg p-8 text-center">
         <p>
           {weather.location.name}, {weather.location.country}
         </p>

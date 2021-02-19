@@ -21,8 +21,8 @@ function WeatherDetails({ weather }) {
   }, [weather.location.name]);
 
   return (
-    <div className="container lg:inline-flex">
-      <div className=" container mx-auto text-gray-500 rounded-lg p-2 text-center">
+    <div className="container lg:inline-flex gap-4 p-4 ">
+      <div className=" container mx-auto text-blue-800 border-4 border-blue-500 border-opacity-25 shadow-md bg-indigo-200  w-3/5 rounded-lg p-4 text-center">
         <p>
           {weather.location.name}, {weather.location.country}
         </p>
@@ -41,7 +41,7 @@ function WeatherDetails({ weather }) {
           Wind: {weather.current.wind_dir}{" "}
           {Math.round(weather.current.wind_mph)} mph
         </p>
-        <div className="flex flex-row gap-4 place-content-center">
+        <div className="flex flex-row gap-4 place-content-center pt-6">
           <button
             className="py-2 px-4 font-semibold rounded-lg shadow-md text-white bg-indigo-600 bg-opacity-25 hover:bg-indigo-200 active:bg-indigo-300 text-center sm:text-left focus:outline-none "
             type="submit"

@@ -13,7 +13,6 @@ function Weather({ place }) {
         let data = await response.json();
         setErr(null);
         // console.log(response.status, data);
-
         if (!response.ok) {
           setErr("Failed to locate city.");
         } else {

@@ -6,9 +6,7 @@ import Weather from "./components/Weather";
 function App() {
   const [place, setPlace] = useState("San Francisco");
   return (
-    <div className="m-12 container mx-auto grid grid-rows-2  rounded-xl bg-gradient-to-r from-indigo-100 to-indigo-200 min-w-0  px-4 sm:px-6 xl:px-8 pt-10 pb-24 lg:pb-16">
-      {/* my-20 container mx-auto grid grid-rows-2 rounded-b-xl bg-purple-600
-      bg-opacity-25  flex-auto */}
+    <div className="m-12 container mx-auto lg:grid grid-rows-2 rounded-xl bg-gradient-to-r from-indigo-100 to-indigo-200 min-w-0  px-4 sm:px-6 xl:px-8 pt-10 pb-24 lg:pb-16">
       <Searchbar place={place} setPlace={setPlace} />
       <Weather place={place} />
     </div>

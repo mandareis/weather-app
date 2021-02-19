@@ -3,13 +3,13 @@ import moment from "moment";
 
 function Forecast({ weather }) {
   return (
-    <div className="container mx-auto inline-flex space-x-6">
+    <div className="container inline-flex place-content-center text-center gap-4">
       {weather.forecast.forecastday.map((day, idx) => {
         return (
           <div
             //how to add a fixed size to these divs
             //find a way to make text smaller when on mobile
-            className="p-4 box-content border-2"
+            className="p-2 md:p-4 rounded-md border-2 h-auto w-auto sm:h-auto sm:w-auto md:w-auto md:h-auto lg:h-48 lg:w-48 border-indigo-500 hover:border-indigo-300 hover:shadow-md text-sm md:text-lg"
             key={idx}
           >
             <p>{moment(day.date).format("ddd DD ")}</p>

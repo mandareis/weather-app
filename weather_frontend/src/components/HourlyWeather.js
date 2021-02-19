@@ -7,7 +7,7 @@ function HourlyWeather({ weather }) {
 
   return (
     <div
-      className="container"
+      className="container mx-auto"
       //find a way to add a size to the graph using tailwinds
     >
       <ResponsiveLine
@@ -60,7 +60,7 @@ function HourlyWeather({ weather }) {
         pointBorderWidth={2}
         pointBorderColor={{ from: "serieColor" }}
         pointLabel="y"
-        pointLabelYOffset={-10}
+        pointLabelYOffset={-12}
         isInteractive={false}
         useMesh={true}
         legends={[

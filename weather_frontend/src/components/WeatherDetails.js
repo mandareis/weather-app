@@ -21,31 +21,29 @@ function WeatherDetails({ weather }) {
   }, [weather.location.name]);
 
   return (
-    <div className="grid grid-cols-2">
-      <div>
-        <div className="container mx-auto text-gray-500 rounded-lg shadow-md">
-          <p>
-            {weather.location.name}, {weather.location.country}
-          </p>
-          <p>{weather.current.condition.text}</p>
-          <p>{moment(weather.location.localtime).format("LLLL ")}</p>
-          <p>
-            Current: {weather.current.temp_f}&#176;F / {weather.current.temp_c}
-            &#176;C
-          </p>
-          <p>
-            Feels like: {Math.round(weather.current.feelslike_f)}&#176;F /{" "}
-            {Math.round(weather.current.feelslike_c)}&#176;C &nbsp;
-          </p>
-          <p>Humidity: {weather.current.humidity}%</p>
-          <p>
-            Wind: {weather.current.wind_dir}{" "}
-            {Math.round(weather.current.wind_mph)} mph
-          </p>
-        </div>
-        <div className="flex flex-row gap-4">
+    <div className="container lg:inline-flex">
+      <div className=" container mx-auto text-gray-500 rounded-lg p-2 text-center">
+        <p>
+          {weather.location.name}, {weather.location.country}
+        </p>
+        <p>{weather.current.condition.text}</p>
+        <p>{moment(weather.location.localtime).format("LLLL ")}</p>
+        <p>
+          Current: {weather.current.temp_f}&#176;F / {weather.current.temp_c}
+          &#176;C
+        </p>
+        <p>
+          Feels like: {Math.round(weather.current.feelslike_f)}&#176;F /{" "}
+          {Math.round(weather.current.feelslike_c)}&#176;C &nbsp;
+        </p>
+        <p>Humidity: {weather.current.humidity}%</p>
+        <p>
+          Wind: {weather.current.wind_dir}{" "}
+          {Math.round(weather.current.wind_mph)} mph
+        </p>
+        <div className="flex flex-row gap-4 place-content-center">
           <button
-            className="py-2 px-4 font-semibold rounded-lg shadow-md text-white bg-indigo-600 bg-opacity-25 hover:bg-indigo-200 active:bg-indigo-300 text-center sm:text-left focus:outline-none"
+            className="py-2 px-4 font-semibold rounded-lg shadow-md text-white bg-indigo-600 bg-opacity-25 hover:bg-indigo-200 active:bg-indigo-300 text-center sm:text-left focus:outline-none "
             type="submit"
             onClick={onBtnClick("hourly-btn")}
           >
@@ -61,7 +59,6 @@ function WeatherDetails({ weather }) {
         </div>
       </div>
       {defaultBtn === "hourly-btn" ? <HourlyWeather weather={weather} /> : null}
-
       {defaultBtn === "day-btn" ? <Forecast weather={weather} /> : null}
     </div>
   );

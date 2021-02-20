@@ -7,7 +7,9 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 app.use(morgan("combined"));
 app.use(express.static(path.resolve(__dirname, "../client/build")));
-
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "../client/build", "index.html"));
+});
 app.get("/api/weather", async (req, res) => {
   console.log(req.query);
   let response = await fetch(

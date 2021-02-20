@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 
 // figure out gap between input and Go button => DONE
-//style the X in the input field
+//style the X in the input field ??
 //@media for the searchbar when on smaller screens =? DONE
-//change text color to soft grey
+//change text color to blue DONE
 function Searchbar(props) {
   const [search, setSearch] = useState(props.place);
   const updatesSetPlace = (e) => {
@@ -11,15 +11,15 @@ function Searchbar(props) {
     props.setPlace(search);
   };
   return (
-    <div className="mb-4">
+    <div className="container mb-4 ">
       <div className="text-center sm:text-left mb-4 ">
-        <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-800 bg-opacity-50 text-4xl sm:text-4xl font-extrabold">
+        <span className="bg-clip-text  text-transparent bg-gradient-to-r from-blue-400 to-blue-800 bg-opacity-50 text-4xl sm:text-4xl font-extrabold">
           Weather App
         </span>
       </div>
       <form onSubmit={updatesSetPlace} className="flex justify-center gap-2">
         <input
-          className="bg-transparent rounded-lg text-blue-800 text-center w-1/2 sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 2xl:w-1/5 focus:outline-none ring-2 focus:ring-blue-300 focus:border-transparent focus:shadow-md"
+          className="bg-transparent rounded-lg text-blue-800 text-center w-1/2 sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 2xl:w-1/5 focus:outline-none ring-2 focus:ring-blue-300 focus:border-transparent focus:shadow-md "
           type="search"
           name="search"
           autoComplete="off"

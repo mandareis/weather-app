@@ -37,25 +37,6 @@ function HourlyWeather({ weather }) {
     console.log(`screenSize is now: ${screenSize}`);
   }, [screenSize]);
 
-  //turn this into a switch case?
-  //   let graph = null;
-  //   if (screenSize === "sm") {
-  //     graph = "h-80 w-full";
-  //   }
-  //   if (screenSize === "md") {
-  //     graph = "md:h-96 md:w-full";
-  //   }
-  //   if (
-  //     screenSize === "lg" ||
-  //     screenSize === "xl" ||
-  //     screenSize === "2xl" ||
-  //     screenSize === "mega"
-  //   ) {
-  //     graph = "h-1/2 w-full";
-  //   }
-  //   console.log(`graph = ${graph}`);
-  //   console.log(hourly.hour);
-
   //   return parseInt(moment(i.time).format("H")) % 3 === 0;
   //
   var height = "250px";
@@ -63,9 +44,12 @@ function HourlyWeather({ weather }) {
   switch (screenSize) {
     case "mega":
     case "2xl":
-    case "xl":
       height = "300px";
-      width = "650px";
+      width = "800px";
+      break;
+    case "xl":
+      width = "500px";
+      height = "300px";
       break;
     case "lg":
       width = "700px";
@@ -87,11 +71,7 @@ function HourlyWeather({ weather }) {
     <>
       <div
         style={{ height: height, width: width }}
-        // className={`relative sm:h-80 sm:w-full md:h-96 md:w-full ${graph}`}
-        className=""
         // place-content-center
-
-        //find a way to add a size to the graph using tailwinds
       >
         {/* FOR THE LOVE OF EVERYTHING HOLY DO NOT PUT */}
         {/* ANYTHING ELSE BESIDES ResponseLine IN THIS */}
@@ -110,7 +90,7 @@ function HourlyWeather({ weather }) {
                 }),
             },
           ]}
-          margin={{ top: 50, right: 20, bottom: 20, left: 45 }}
+          margin={{ top: 50, right: 20, bottom: 35, left: 55 }}
           xScale={{ type: "point" }}
           yScale={{
             type: "linear",
@@ -128,8 +108,8 @@ function HourlyWeather({ weather }) {
             tickSize: 5,
             tickPadding: 5,
             tickRotation: 0,
-            legend: "hour",
-            legendOffset: 36,
+            legend: "Hour",
+            legendOffset: 30,
             legendPosition: "middle",
           }}
           axisLeft={{
@@ -137,47 +117,49 @@ function HourlyWeather({ weather }) {
             tickSize: 5,
             tickPadding: 5,
             tickRotation: 0,
-            legend: "temp (F)",
+            legend: "Temp (F)",
             legendOffset: -40,
             legendPosition: "middle",
           }}
           enableGridX={false}
           enableGridY={false}
-          pointSize={2}
-          pointColor={{ theme: "background" }}
+          pointSize={6}
+          colors="#1c38a6"
+          pointColor="#1c38a6"
+          borderColor="#1c38a6"
           enablePointLabel={true}
-          pointBorderWidth={8}
-          pointBorderColor={{ from: "serieColor" }}
+          pointBorderWidth={6}
+          pointBorderColor="#1c38a6"
           pointLabel="y"
           pointLabelYOffset={-12}
           isInteractive={false}
           useMesh={true}
-          //   legends={[
-          //     {
-          //       anchor: "bottom-right",
-          //       direction: "column",
-          //       justify: false,
-          //       translateX: 130,
-          //       translateY: -100,
-          //       itemsSpacing: 0,
-          //       itemDirection: "left-to-right",
-          //       itemWidth: 80,
-          //       itemHeight: 20,
-          //       itemOpacity: 0.75,
-          //       symbolSize: 12,
-          //       symbolShape: "circle",
-          //       symbolBorderColor: "rgba(0, 0, 0, .5)",
-          //       effects: [
-          //         {
-          //           on: "hover",
-          //           style: {
-          //             itemBackground: "rgba(0, 0, 0, .03)",
-          //             itemOpacity: 1,
-          //           },
-          //         },
-          //       ],
-          //     },
-          //   ]}
+          legends={[
+            {
+              anchor: "bottom-right",
+              direction: "column",
+              justify: false,
+              translateX: 130,
+              translateY: -100,
+              itemsSpacing: 0,
+              itemDirection: "left-to-right",
+              itemWidth: 80,
+              itemHeight: 20,
+              itemOpacity: 0.75,
+              symbolSize: 12,
+              symbolShape: "circle",
+              symbolBorderColor: "#1c38a6",
+              effects: [
+                {
+                  on: "hover",
+                  style: {
+                    itemBackground: "#1c38a6",
+                    itemOpacity: 1,
+                  },
+                },
+              ],
+            },
+          ]}
         />
       </div>
     </>

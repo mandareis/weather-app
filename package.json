@@ -6,11 +6,11 @@
   "type": "module",
   "scripts": {
     "start": "node server/index.js",
-    "build": "cd client && npm install && npm run build",
+    "build": "cd weather_frontend && npm install && npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "engines": {
-  "node": "v15.0.1"
+  "node": "15.0.1"
 },
   "keywords": [],
   "author": "",

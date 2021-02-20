@@ -6,8 +6,12 @@
   "type": "module",
   "scripts": {
     "start": "node server/index.js",
+    "build": "cd client && npm install && npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "engines": {
+  "node": "your-node-version"
+},
   "keywords": [],
   "author": "",
   "license": "ISC",

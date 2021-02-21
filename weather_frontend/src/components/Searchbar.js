@@ -19,9 +19,9 @@ function Searchbar(props) {
       </div>
       <form onSubmit={updatesSetPlace} className="flex justify-center gap-2">
         <input
-          className="bg-transparent rounded-lg text-blue-800 text-center w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 2xl:w-1/5 focus:outline-none ring-2 focus:ring-blue-300 focus:border-transparent focus:shadow-md "
+          className="bg-transparent rounded-lg text-blue-800 text-center w-auto sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 2xl:w-1/5 focus:outline-none ring-2 focus:ring-blue-300 focus:border-transparent focus:shadow-md "
           type="search"
-          style={{ marginRight: "3em" }}
+          style={{ marginRight: "2em" }}
           name="search"
           autoComplete="off"
           placeholder="Search by city or zipcode"

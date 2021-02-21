@@ -17,7 +17,7 @@ function WeatherDetails({ weather }) {
   }, [weather.location.name]);
   // work on fixing the size of container below
   return (
-    <div className="container lg:inline-flex gap-8">
+    <div className="container lg:inline-flex mr-8">
       {/* border-blue-500 */}
       <div className=" container mx-auto text-blue-800 border-2 border-white border-opacity-25 shadow-md bg-indigo-200 md:w-3/5 rounded-lg p-8 text-center">
         <p className="font-bold">
@@ -34,7 +34,7 @@ function WeatherDetails({ weather }) {
                 &#176;C{" "}
               </p>
             </div>
-            <div className="">
+            <div style={{ marginRight: "3em" }}>
               <span className="font-bold">Feels like:</span>
               <p>
                 {Math.round(weather.current.feelslike_f)}&#176;F /{" "}
@@ -44,7 +44,9 @@ function WeatherDetails({ weather }) {
           </div>
           <div className=" flex inline-flex place-content-center gap-10">
             <div>
-              <span className="font-bold">Humidity:</span>
+              <span className="font-bold" style={{ marginRight: "3em" }}>
+                Humidity:
+              </span>
               <p>{weather.current.humidity}%</p>
             </div>
             <div>
@@ -56,7 +58,10 @@ function WeatherDetails({ weather }) {
             </div>
           </div>
         </div>
-        <div className="flex flex-row gap-8 place-content-center pt-6">
+        <div
+          className="flex flex-row mr-8 place-content-center pt-6"
+          style={{ marginRight: "3em" }}
+        >
           <button
             className="py-2 px-4 font-semibold rounded-lg shadow-md text-white bg-indigo-600 bg-opacity-25 hover:bg-indigo-200 active:bg-indigo-300 text-center sm:text-left focus:outline-none "
             type="submit"

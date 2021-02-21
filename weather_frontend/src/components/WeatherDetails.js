@@ -18,9 +18,11 @@ function WeatherDetails({ weather }) {
   // work on fixing the size of container below
 
   return (
-    <div className="container lg:inline-flex ">
-      {/* border-blue-500 */}
-      <div className=" container mx-auto text-blue-800 border-2 border-white border-opacity-25 shadow-md bg-indigo-200 md:w-3/5 rounded-lg p-8 text-center">
+    <div className="container lg:inline-flex">
+      <div
+        className=" container mx-auto text-blue-800 border-2 border-white border-opacity-25 shadow-md bg-indigo-200  md:w-3/5 rounded-lg p-8 text-center"
+        style={{ marginBottom: "1em" }}
+      >
         <p className="font-bold">
           {weather.location.name}, {weather.location.country}
         </p>
@@ -30,8 +32,8 @@ function WeatherDetails({ weather }) {
             "LLLL "
           )}
         </p>
-        <div className="grid grid-rows-2 ">
-          <div className=" flex inline-flex place-content-center gap-10">
+        <div className="grid grid-rows-2">
+          <div className=" flex inline-flex place-content-center ">
             <div style={{ marginRight: "3em" }}>
               <span className="font-bold"> Current: </span>
               <p>
@@ -47,13 +49,16 @@ function WeatherDetails({ weather }) {
               </p>
             </div>
           </div>
-          <div className=" flex inline-flex place-content-center gap-10">
+          <div className=" flex inline-flex place-content-center">
             <div>
               <span className="font-bold" style={{ marginRight: "3em" }}>
                 Humidity:
               </span>
-              <p>{weather.current.humidity}%</p>
+              <p style={{ marginRight: "3.2em" }}>
+                {weather.current.humidity}%
+              </p>
             </div>
+
             <div>
               <span className="font-bold ">Wind:</span>
               <p>

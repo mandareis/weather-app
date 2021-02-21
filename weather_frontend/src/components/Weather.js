@@ -12,9 +12,9 @@ function Weather({ place }) {
         let response = await fetch(`/api/weather?q=${place}`);
         let data = await response.json();
         setErr(null);
-        // console.log(response.status, data);
         if (!response.ok) {
           setErr("Failed to locate city.");
+          console.error(`server error: ${data.error.message}`);
         } else {
           setWeather(data);
         }

@@ -56,7 +56,7 @@ function WeatherDetails({ weather }) {
             </div>
           </div>
         </div>
-        <div className="flex flex-row gap-4 place-content-center pt-6">
+        <div className="flex flex-row gap-8 place-content-center pt-6">
           <button
             className="py-2 px-4 font-semibold rounded-lg shadow-md text-white bg-indigo-600 bg-opacity-25 hover:bg-indigo-200 active:bg-indigo-300 text-center sm:text-left focus:outline-none "
             type="submit"

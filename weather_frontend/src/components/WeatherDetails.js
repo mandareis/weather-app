@@ -16,6 +16,7 @@ function WeatherDetails({ weather }) {
     setDefaultBtn("hourly-btn");
   }, [weather.location.name]);
   // work on fixing the size of container below
+
   return (
     <div className="container lg:inline-flex ">
       {/* border-blue-500 */}
@@ -24,7 +25,11 @@ function WeatherDetails({ weather }) {
           {weather.location.name}, {weather.location.country}
         </p>
         <p>{weather.current.condition.text}</p>
-        <p>{moment(weather.location.localtime).format("LLLL ")}</p>
+        <p>
+          {moment(weather.location.localtime, "YYYY-MM-DD H:mm").format(
+            "LLLL "
+          )}
+        </p>
         <div className="grid grid-rows-2 ">
           <div className=" flex inline-flex place-content-center gap-10">
             <div style={{ marginRight: "3em" }}>

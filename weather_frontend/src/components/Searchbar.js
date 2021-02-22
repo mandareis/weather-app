@@ -19,7 +19,7 @@ function Searchbar(props) {
       </div>
       <form onSubmit={updatesSetPlace} className="flex justify-center gap-2">
         <input
-          className="bg-transparent rounded-lg text-blue-800 text-center w-auto sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 2xl:w-1/5 focus:outline-none ring-2 focus:ring-blue-300 focus:border-transparent focus:shadow-md "
+          className="bg-transparent rounded-lg text-blue-800 text-center w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 2xl:w-1/5 focus:outline-none ring-2 focus:ring-blue-300 focus:border-transparent focus:shadow-md "
           type="search"
           style={{ marginRight: "1em" }}
           name="search"
@@ -30,7 +30,7 @@ function Searchbar(props) {
         />
 
         <button
-          className="py-2 px-4 font-semibold rounded-lg shadow-md hover:bg-indigo-200  text-white bg-indigo-600 bg-opacity-25 active:bg-indigo-300 focus:outline-none"
+          className="py-1.5 px-4 font-semibold rounded-lg shadow-md hover:bg-indigo-200  text-white bg-indigo-600 bg-opacity-25 active:bg-indigo-300 focus:outline-none"
           type="submit"
         >
           Go

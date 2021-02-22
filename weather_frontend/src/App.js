@@ -1,27 +1,50 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
 import Searchbar from "./components/Searchbar";
 import Weather from "./components/Weather";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
-  //add state for dark mode switch
-  // add logic for it respecting os preference
   const [place, setPlace] = useState("San Francisco");
-  // const [theme, setTheme] = useState(localStorage.theme);
 
-  const setTheme = () => {
-    if (localStorage.theme === "dark") {
-      localStorage.theme = "light";
-      document.documentElement.classList.remove("dark");
-    } else if (localStorage.theme === "light") {
-      localStorage.theme = "dark";
-      document.documentElement.classList.add("dark");
-    } else {
-      delete localStorage.theme;
-      throw new Error(`unknown theme: ${localStorage.theme}`);
+  useEffect(() => {
+    const mqResult = window.matchMedia("(prefers-color-scheme: dark)");
+    mqResult.addEventListener("change", onPreferenceChanged);
+    return () => {
+      mqResult.removeEventListener("change", onPreferenceChanged);
+    };
+  }, []);
+
+  const onPreferenceChanged = () => {
+    if (localStorage.theme === "auto") {
+      if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
     }
-    console.log(localStorage);
+  };
+  const setTheme = (e) => {
+    switch (e.target.id) {
+      case "visual-mode-auto":
+        localStorage.theme = "auto";
+        if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+          document.documentElement.classList.add("dark");
+        } else {
+          document.documentElement.classList.remove("dark");
+        }
+        break;
+      case "visual-mode-dark":
+        localStorage.theme = "dark";
+        document.documentElement.classList.add("dark");
+        break;
+      case "visual-mode-light":
+        localStorage.theme = "light";
+        document.documentElement.classList.remove("dark");
+        break;
+      default:
+        throw new Error("unknown button");
+    }
   };
 
   return (
@@ -33,10 +56,22 @@ function App() {
         <Switch>
           <Route exact path="/">
             <div className="m-12 font-sans container mx-auto lg:grid grid-rows-2 rounded-xl bg-gradient-to-r from-indigo-100 to-indigo-200 sm:px-6 xl:px-8 pt-10 min-w-0  px-4  pb-24 lg:pb-16">
-              <div className="">
-                <button onClick={setTheme}>Auto</button>
-                <button>Dark</button>
-                <button>Light</button>
+              <div className="flex inline-flex flex-row-reverse">
+                <div className="mr-4">
+                  <button id="visual-mode-auto" onClick={setTheme}>
+                    Auto
+                  </button>
+                </div>
+                <div className="mr-4">
+                  <button id="visual-mode-dark" onClick={setTheme}>
+                    Dark
+                  </button>
+                </div>
+                <div className="mr-4">
+                  <button id="visual-mode-light" onClick={setTheme}>
+                    Light
+                  </button>
+                </div>
               </div>
               <Searchbar place={place} setPlace={setPlace} />
               <Weather place={place} />

@@ -11,7 +11,7 @@ function App() {
   //fix background color when on mobile
   return (
     <div
-      style={{ height: "100vh", padding: "1rem" }}
+      style={{ height: "100vh", padding: ".7rem" }}
       className="bg-white dark:bg-gray-900"
     >
       <Router>

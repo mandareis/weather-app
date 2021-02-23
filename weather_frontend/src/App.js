@@ -17,7 +17,7 @@ function App() {
       <Router>
         <Switch>
           <Route exact path="/">
-            <div className="md:m-12 font-sans container w-full md:container md:mx-auto dark:text-white grid-rows-2 dark:bg-gradient-to-r dark:from-gray-600 dark:to-gray-700 rounded-xl bg-gradient-to-r from-indigo-100 to-indigo-200  xl:px-8 pt-10 min-w-0 pb-10 px-4 lg:pb-16">
+            <div className=" font-sans lg:container lg:mx-auto dark:text-white grid-rows-2 dark:bg-gradient-to-r dark:from-gray-600 dark:to-gray-700 rounded-xl bg-gradient-to-r from-indigo-100 to-indigo-200  xl:px-8 pt-10 min-w-0 pb-10 px-4 lg:pb-16">
               {/* figure out margin bottom  */}
               <DarkMode />
               <Searchbar place={place} setPlace={setPlace} />

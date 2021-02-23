@@ -12,7 +12,7 @@ function App() {
   return (
     <div
       style={{ padding: "1rem" }}
-      className="bg-white dark:bg-gray-900 bg-max-h-screen"
+      className="bg-white dark:bg-gray-900 bg-max-h-screen bg-max-w-screen-2xl"
     >
       <Router>
         <Switch>

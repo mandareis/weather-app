@@ -65,14 +65,13 @@ function HourlyWeather({ weather }) {
       throw new Error(`unknown screenSize: '${screenSize}'`);
   }
   const theme = {
-    data: {
-      text: {
-        fill: "rgb(141, 156, 171)",
-      },
-    },
-
     axis: {
       fontSize: "14px",
+      pointLabel: {
+        text: {
+          fill: "rgb(141, 156, 171)",
+        },
+      },
       //   tickColor: "rgb(141, 156, 171)",
       legend: {
         text: {
@@ -83,6 +82,11 @@ function HourlyWeather({ weather }) {
         // line: {
         //   stroke: "rgb(141, 156, 171)",
         // },
+        text: {
+          fill: "rgb(141, 156, 171)",
+        },
+      },
+      point: {
         text: {
           fill: "rgb(141, 156, 171)",
         },
@@ -111,9 +115,11 @@ function HourlyWeather({ weather }) {
                   y: Math.round(h.temp_f),
                 };
               }),
+            // itemTextColor: "rgb(141, 156, 171)",
           },
         ]}
         margin={{ top: 40, right: 50, bottom: 40, left: 50 }}
+        // itemTextColor="rgb(141, 156, 171)"
         xScale={{ type: "point" }}
         yScale={{
           type: "linear",
@@ -153,37 +159,38 @@ function HourlyWeather({ weather }) {
         // borderColor="rgb(141, 156, 171)"
         enablePointLabel={true}
         pointBorderWidth={6}
-        pointBorderColor="rgb(141, 156, 171)"
+        // pointBorderColor="rgb(141, 156, 171)"
         pointLabel="y"
         pointLabelYOffset={-12}
         isInteractive={false}
         useMesh={true}
-        // legends={[
-        //   {
-        //     anchor: "bottom-right",
-        //     direction: "column",
-        //     justify: false,
-        //     translateX: 130,
-        //     translateY: -100,
-        //     itemsSpacing: 0,
-        //     itemDirection: "left-to-right",
-        //     itemWidth: 80,
-        //     itemHeight: 20,
-        //     itemOpacity: 0.75,
-        //     symbolSize: 12,
-        //     symbolShape: "circle",
-        //     symbolBorderColor: "rgb(141, 156, 171)",
-        //     effects: [
-        //       {
-        //         on: "hover",
-        //         style: {
-        //           itemBackground: "rgb(141, 156, 171)",
-        //           itemOpacity: 1,
-        //         },
-        //       },
-        //     ],
-        //   },
-        // ]}
+        legends={[
+          {
+            anchor: "bottom-right",
+            direction: "column",
+            justify: false,
+            translateX: 130,
+            translateY: -100,
+            itemsSpacing: 0,
+            itemDirection: "left-to-right",
+            itemWidth: 80,
+            itemHeight: 20,
+            itemOpacity: 0.75,
+            symbolSize: 12,
+            symbolShape: "circle",
+            itemTextColor: "rgb(141, 156, 171)",
+            symbolBorderColor: "rgb(141, 156, 171)",
+            effects: [
+              {
+                on: "hover",
+                style: {
+                  itemBackground: "rgb(141, 156, 171)",
+                  itemOpacity: 1,
+                },
+              },
+            ],
+          },
+        ]}
       />
     </div>
   );

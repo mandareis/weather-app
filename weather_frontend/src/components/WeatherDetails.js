@@ -17,9 +17,9 @@ function WeatherDetails({ weather }) {
   }, [weather.location.name]);
   // work on fixing the size of container below
   return (
-    <div className="container lg:inline-flex">
+    <div className="container lg:inline-flex text-sm md:text-lg">
       <div
-        className=" container mx-auto text-blue-800 border-2 border-white dark:text-white border-opacity-25 shadow-md bg-indigo-200 dark:bg-gray-500 dark:border-gray-600 
+        className="container mx-auto text-blue-800 border-2 border-white dark:text-white border-opacity-25 shadow-md bg-indigo-200 dark:bg-gray-500 dark:border-gray-600 
         dark:border-opacity-25 md:w-3/5 rounded-lg p-8 text-center"
         style={{ marginBottom: "1em" }}
       >
@@ -37,7 +37,8 @@ function WeatherDetails({ weather }) {
             <div style={{ marginRight: "3em" }}>
               <span className="font-bold"> Current: </span>
               <p>
-                {weather.current.temp_f}&#176;F / {weather.current.temp_c}
+                {Math.round(weather.current.temp_f)}&#176;F /{" "}
+                {weather.current.temp_c}
                 &#176;C{" "}
               </p>
             </div>

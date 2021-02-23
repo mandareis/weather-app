@@ -56,7 +56,7 @@ function HourlyWeather({ weather }) {
       width = "550px";
       break;
     case "sm":
-      width = "75vw";
+      width = "90vw";
       // on sm screens we need to be a bit
       // more dynamic, so use 90% of viewport
       // width
@@ -79,9 +79,6 @@ function HourlyWeather({ weather }) {
         },
       },
       ticks: {
-        // line: {
-        //   stroke: "rgb(141, 156, 171)",
-        // },
         text: {
           fill: "rgb(141, 156, 171)",
         },
@@ -164,33 +161,33 @@ function HourlyWeather({ weather }) {
         pointLabelYOffset={-12}
         isInteractive={false}
         useMesh={true}
-        legends={[
-          {
-            anchor: "bottom-right",
-            direction: "column",
-            justify: false,
-            translateX: 130,
-            translateY: -100,
-            itemsSpacing: 0,
-            itemDirection: "left-to-right",
-            itemWidth: 80,
-            itemHeight: 20,
-            itemOpacity: 0.75,
-            symbolSize: 12,
-            symbolShape: "circle",
-            itemTextColor: "rgb(141, 156, 171)",
-            symbolBorderColor: "rgb(141, 156, 171)",
-            effects: [
-              {
-                on: "hover",
-                style: {
-                  itemBackground: "rgb(141, 156, 171)",
-                  itemOpacity: 1,
-                },
-              },
-            ],
-          },
-        ]}
+        // legends={[
+        //   {
+        //     anchor: "bottom-right",
+        //     direction: "column",
+        //     justify: false,
+        //     translateX: 130,
+        //     translateY: -100,
+        //     itemsSpacing: 0,
+        //     itemDirection: "left-to-right",
+        //     itemWidth: 80,
+        //     itemHeight: 20,
+        //     itemOpacity: 0.75,
+        //     symbolSize: 12,
+        //     symbolShape: "circle",
+        //     itemTextColor: "rgb(141, 156, 171)",
+        //     symbolBorderColor: "rgb(141, 156, 171)",
+        //     effects: [
+        //       {
+        //         on: "hover",
+        //         style: {
+        //           itemBackground: "rgb(141, 156, 171)",
+        //           itemOpacity: 1,
+        //         },
+        //       },
+        //     ],
+        //   },
+        // ]}
       />
     </div>
   );

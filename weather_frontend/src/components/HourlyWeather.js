@@ -64,17 +64,41 @@ function HourlyWeather({ weather }) {
     default:
       throw new Error(`unknown screenSize: '${screenSize}'`);
   }
+  const theme = {
+    data: {
+      text: {
+        fill: "rgb(141, 156, 171)",
+      },
+    },
 
+    axis: {
+      fontSize: "14px",
+      //   tickColor: "rgb(141, 156, 171)",
+      legend: {
+        text: {
+          fill: "rgb(141, 156, 171)",
+        },
+      },
+      ticks: {
+        // line: {
+        //   stroke: "rgb(141, 156, 171)",
+        // },
+        text: {
+          fill: "rgb(141, 156, 171)",
+        },
+      },
+    },
+  };
+
+  //have state passed here and add a ternary for light : dark
   return (
-    // <>
-    <div
-      className="container mx-auto"
-      style={{ height: height, width: width }}
-      // place-content-center
-    >
+    <div className="container mx-auto" style={{ height: height, width: width }}>
       {/* FOR THE LOVE OF EVERYTHING HOLY DO NOT PUT */}
       {/* ANYTHING ELSE BESIDES ResponseLine IN THIS */}
       {/* DIV OR DEMONS WILL RAVAGE THE PAGE */}
+      {/* rgb(106, 124, 137) */}
+      {/* rgb(141, 156, 171) dark mode */}
+
       <ResponsiveLine
         data={[
           {
@@ -123,45 +147,45 @@ function HourlyWeather({ weather }) {
         enableGridX={false}
         enableGridY={false}
         pointSize={6}
-        colors="#1c38a6"
-        pointColor="#1c38a6"
-        borderColor="#1c38a6"
+        theme={theme}
+        colors="rgb(141, 156, 171)"
+        // pointColor="rgb(141, 156, 171)"
+        // borderColor="rgb(141, 156, 171)"
         enablePointLabel={true}
         pointBorderWidth={6}
-        pointBorderColor="#1c38a6"
+        pointBorderColor="rgb(141, 156, 171)"
         pointLabel="y"
         pointLabelYOffset={-12}
         isInteractive={false}
         useMesh={true}
-        legends={[
-          {
-            anchor: "bottom-right",
-            direction: "column",
-            justify: false,
-            translateX: 130,
-            translateY: -100,
-            itemsSpacing: 0,
-            itemDirection: "left-to-right",
-            itemWidth: 80,
-            itemHeight: 20,
-            itemOpacity: 0.75,
-            symbolSize: 12,
-            symbolShape: "circle",
-            symbolBorderColor: "#1c38a6",
-            effects: [
-              {
-                on: "hover",
-                style: {
-                  itemBackground: "#1c38a6",
-                  itemOpacity: 1,
-                },
-              },
-            ],
-          },
-        ]}
+        // legends={[
+        //   {
+        //     anchor: "bottom-right",
+        //     direction: "column",
+        //     justify: false,
+        //     translateX: 130,
+        //     translateY: -100,
+        //     itemsSpacing: 0,
+        //     itemDirection: "left-to-right",
+        //     itemWidth: 80,
+        //     itemHeight: 20,
+        //     itemOpacity: 0.75,
+        //     symbolSize: 12,
+        //     symbolShape: "circle",
+        //     symbolBorderColor: "rgb(141, 156, 171)",
+        //     effects: [
+        //       {
+        //         on: "hover",
+        //         style: {
+        //           itemBackground: "rgb(141, 156, 171)",
+        //           itemOpacity: 1,
+        //         },
+        //       },
+        //     ],
+        //   },
+        // ]}
       />
     </div>
-    // </>
   );
 }
 export default HourlyWeather;

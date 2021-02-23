@@ -28,7 +28,7 @@ function Weather({ place }) {
   }, [place]);
 
   return (
-    <div className=" ">
+    <div>
       {err || isLoading ? null : <WeatherDetails weather={weather} />}
       {err && <p>{err}</p>}
     </div>

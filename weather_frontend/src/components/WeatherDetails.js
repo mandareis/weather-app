@@ -16,11 +16,11 @@ function WeatherDetails({ weather }) {
     setDefaultBtn("hourly-btn");
   }, [weather.location.name]);
   // work on fixing the size of container below
-
   return (
     <div className="container lg:inline-flex">
       <div
-        className=" container mx-auto text-blue-800 border-2 border-white border-opacity-25 shadow-md bg-indigo-200  md:w-3/5 rounded-lg p-8 text-center"
+        className=" container mx-auto text-blue-800 border-2 border-white dark:text-white border-opacity-25 shadow-md bg-indigo-200 dark:bg-gray-500 dark:border-gray-600 
+        dark:border-opacity-25 md:w-3/5 rounded-lg p-8 text-center"
         style={{ marginBottom: "1em" }}
       >
         <p className="font-bold">
@@ -49,20 +49,15 @@ function WeatherDetails({ weather }) {
               </p>
             </div>
           </div>
-          <div className=" flex inline-flex place-content-center">
-            <div>
-              <span className="font-bold" style={{ marginRight: "3em" }}>
-                Humidity:
-              </span>
-              <p style={{ marginRight: "3.2em" }}>
-                {weather.current.humidity}%
-              </p>
+          <div className="flex inline-flex place-content-center">
+            <div style={{ marginRight: "3em" }}>
+              <span className="font-bold">Humidity:</span>
+              <p>{weather.current.humidity}%</p>
             </div>
-
             <div>
-              <span className="font-bold ">Wind:</span>
+              <span className="font-bold ">Wind: </span>
               <p>
-                &nbsp;&nbsp;{weather.current.wind_dir}{" "}
+                &nbsp;{weather.current.wind_dir}{" "}
                 {Math.round(weather.current.wind_mph)}mph
               </p>
             </div>
@@ -70,7 +65,7 @@ function WeatherDetails({ weather }) {
         </div>
         <div className="flex flex-row mr-8 place-content-center pt-6">
           <button
-            className="py-2 px-4 font-semibold rounded-lg shadow-md text-white bg-indigo-600 bg-opacity-25 hover:bg-indigo-200 active:bg-indigo-300 text-center sm:text-left focus:outline-none "
+            className="py-2 px-4 font-semibold rounded-lg shadow-md text-white bg-indigo-600 bg-opacity-25 hover:bg-indigo-200 active:bg-indigo-300 dark:bg-gray-300 dark:bg-opacity-25 dark:hover:bg-gray-200 dark:hover:bg-opacity-25 dark:active:bg-gray-300 text-center sm:text-left focus:outline-none "
             type="submit"
             style={{ marginRight: "3em" }}
             onClick={onBtnClick("hourly-btn")}
@@ -78,7 +73,8 @@ function WeatherDetails({ weather }) {
             Hourly
           </button>
           <button
-            className="py-2 px-4 font-semibold rounded-lg shadow-md text-white bg-indigo-600 bg-opacity-25 hover:bg-indigo-200 active:bg-indigo-300  text-center sm:text-left focus:outline-none"
+            className="py-2 px-4 font-semibold rounded-lg shadow-md text-white bg-indigo-600 bg-opacity-25 hover:bg-indigo-200 active:bg-indigo-300 
+            dark:bg-gray-300 dark:bg-opacity-25 dark:hover:bg-gray-200 dark:hover:bg-opacity-25 dark:active:bg-gray-300 text-center sm:text-left focus:outline-none"
             type="submit"
             onClick={onBtnClick("day-btn")}
           >

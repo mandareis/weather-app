@@ -3,12 +3,15 @@ import moment from "moment";
 
 function Forecast({ weather }) {
   return (
-    <div className="container inline-flex place-content-center text-center pt-4">
+    <div className="container inline-flex place-content-center text-center sm:pt-4 md:pt-14">
       {weather.forecast.forecastday.map((day, idx) => {
         return (
           <div
-            className="transition duration-500 ease-in-out p-2 md:p-4 rounded-md border-4 h-42 w-full md:h-48 md:w-48 border-blue-500 border-opacity-25 hover:border-indigo-400 relative border-opacity-25 hover:shadow-md text-xs sm:text-lg text-blue-800 transform hover:-translate-y-1 hover:scale-110 hover:bg-white hover:bg-opacity-25"
-            style={{ marginRight: "0.5em", marginLeft: "1em" }}
+            className="transition duration-500 ease-in-out p-2 md:p-4 rounded-md border-4 h-42 w-full md:h-48 md:w-48 border-blue-500 border-opacity-25 hover:border-indigo-400 border-opacity-25 dark:border-gray-500 dark:opacity-25 dark:hover:border-gray-400 shadow-md text-xs sm:text-lg text-blue-800 dark:text-white transform hover:-translate-y-1 hover:scale-110 hover:bg-white hover:bg-opacity-25 dark:hover:bg-gray-200 dark:hover:bg-opacity-25 "
+            style={{
+              marginRight: "0.5rem",
+              marginLeft: "0.5rem",
+            }}
             key={idx}
           >
             <p>{moment(day.date).format("ddd DD ")}</p>

@@ -56,7 +56,7 @@ function HourlyWeather({ weather }) {
       width = "550px";
       break;
     case "sm":
-      width = "90vw";
+      width = "93vw";
       // on sm screens we need to be a bit
       // more dynamic, so use 90% of viewport
       // width

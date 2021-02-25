@@ -5,6 +5,7 @@ import moment from "moment";
 
 function WeatherDetails({ weather }) {
   const [defaultBtn, setDefaultBtn] = useState("hourly-btn");
+  console.log(weather);
   //higher order function that first checks which button is being clicked, and arrow function updates the defaultBtn to the which is selected.
   const onBtnClick = (which) => {
     return () => {

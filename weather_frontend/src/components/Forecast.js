@@ -3,22 +3,27 @@ import moment from "moment";
 
 function Forecast({ weather }) {
   return (
-    <div
-      className="container inline-flex place-content-center text-center  md:pt-14 "
-      //   style={{ marginLeft: "0.5rem" }}
-    >
+    <div className="container inline-flex text-center place-content-center lg:pt-10 xl:pt-16 space-x-5 ">
       {weather.forecast.forecastday.map((day, idx) => {
         return (
           <div
-            className="transition duration-500 ease-in-out p-2 md:p-4 rounded-md border-4 h-42 w-full md:h-48 md:w-48 border-blue-500 border-opacity-25 hover:border-indigo-400 border-opacity-25 dark:border-gray-500 dark:opacity-25 dark:hover:border-gray-400 shadow-md text-xs sm:text-lg text-blue-800 dark:text-white transform hover:-translate-y-1 hover:scale-110 hover:bg-white hover:bg-opacity-25 dark:hover:bg-gray-200 dark:hover:bg-opacity-25 "
-            style={{
-              marginLeft: "1rem",
-            }}
+            className="transition duration-500 py-2 ease-in-out rounded-md border-4 md:h-full w-4/5 lg:h-60 xl:h-60 border-blue-500 border-opacity-25 hover:border-indigo-400 border-opacity-25 dark:border-gray-500 dark:opacity-25 dark:hover:border-gray-400 shadow-md text-xs md:text-lg text-blue-800 dark:text-white transform hover:-translate-y-1 hover:scale-110 hover:bg-white hover:bg-opacity-25 dark:hover:bg-gray-200 dark:hover:bg-opacity-25 lg:ml-6"
+            // style={{
+            //   marginLeft: "1rem",
+            // }}
             key={idx}
           >
+            <div className="flex place-content-center">
+              <img
+                src={day.day.condition.icon}
+                alt="icon"
+                style={{ height: "60px" }}
+              />
+            </div>
             <p>{moment(day.date).format("ddd DD ")}</p>
             <p>
-              {day.day.avgtemp_f}&#176;F / {Math.round(day.day.avgtemp_c)}
+              {Math.round(day.day.avgtemp_f)}&#176;F /{" "}
+              {Math.round(day.day.avgtemp_c)}
               &#176;C
             </p>
             <p>{day.day.condition.text}</p>

@@ -22,7 +22,6 @@ function WeatherDetails({ weather }) {
       <div
         className="container mx-auto text-blue-800 border-2 border-white dark:text-white border-opacity-25 shadow-md bg-indigo-200 dark:bg-gray-500 dark:border-gray-600 
         dark:border-opacity-25 md:w-3/5 rounded-lg p-8 space-y-2 mb-6 text-center"
-        // style={{ margin: "2rem" }}
       >
         <p className="font-bold">
           {weather.location.name}, {weather.location.country}

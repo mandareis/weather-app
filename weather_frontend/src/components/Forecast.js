@@ -3,14 +3,12 @@ import moment from "moment";
 
 function Forecast({ weather }) {
   return (
-    <div className="container inline-flex text-center place-content-center lg:pt-10 xl:pt-16 space-x-5 ">
+    <div className="container inline-flex text-center place-content-center  space-x-5 ">
+      {/* lg:pt-10 xl:pt-16 */}
       {weather.forecast.forecastday.map((day, idx) => {
         return (
           <div
             className="transition duration-500 py-2 ease-in-out rounded-md border-4 md:h-full w-4/5 lg:h-60 xl:h-60 border-blue-500 border-opacity-25 hover:border-indigo-400 border-opacity-25 dark:border-gray-500 dark:opacity-25 dark:hover:border-gray-400 shadow-md text-xs md:text-lg text-blue-800 dark:text-white transform hover:-translate-y-1 hover:scale-110 hover:bg-white hover:bg-opacity-25 dark:hover:bg-gray-200 dark:hover:bg-opacity-25 lg:ml-6"
-            // style={{
-            //   marginLeft: "1rem",
-            // }}
             key={idx}
           >
             <div className="flex place-content-center">

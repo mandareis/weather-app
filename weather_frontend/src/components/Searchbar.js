@@ -11,8 +11,8 @@ function Searchbar(props) {
     props.setPlace(search);
   };
   return (
-    <div className="container mb-6 ">
-      <div className="text-center sm:text-left mb-6 ">
+    <div className="container  mb-8 ">
+      <div className="text-center sm:text-left  mb-8 md:mb-4">
         <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-800 bg-opacity-50 dark:bg-gradient-to-r dark:from-gray-400 dark:to-gray-200 text-4xl sm:text-4xl font-extrabold">
           Weather App
         </span>

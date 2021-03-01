@@ -43,7 +43,7 @@ function DarkMode() {
   return (
     <div className="flex justify-center sm:justify-end">
       <div className="mb-8 md:mb-4 grid grid-cols-3 divide-x max-w-xs divide-indigo-800 dark:divide-gray-400 ">
-        <div className="mr-4">
+        <div className="">
           <button
             className="text-center font-semibold text-lg text-blue-700 dark:text-gray-200 px-6 focus:outline-none"
             id="visual-mode-auto"
@@ -52,7 +52,7 @@ function DarkMode() {
             Auto
           </button>
         </div>
-        <div className="mr-4  ">
+        <div className="">
           <button
             className=" text-center font-semibold text-lg text-blue-800 dark:text-gray-300 px-6 focus:outline-none"
             id="visual-mode-dark"
@@ -61,7 +61,7 @@ function DarkMode() {
             Dark
           </button>
         </div>
-        <div className="mr-4">
+        <div className="">
           <button
             className="text-center font-semibold text-lg text-blue-900 dark:text-gray-400 px-6 focus:outline-none"
             id="visual-mode-light"

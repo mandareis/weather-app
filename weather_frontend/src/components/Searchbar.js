@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 
 // figure out gap between input and Go button => DONE
 //style the X in the input field ??
@@ -6,10 +6,46 @@ import React, { useState } from "react";
 //change text color to blue DONE
 function Searchbar(props) {
   const [search, setSearch] = useState(props.place);
+  const cityRef = useRef(null);
+  const autocompleteRef = useRef(null);
+
   const updatesSetPlace = (e) => {
     e.preventDefault();
     props.setPlace(search);
   };
+
+  useEffect(() => {
+    if (autocompleteRef.current) {
+      return;
+    }
+    console.log("Initializing autocomplete");
+    autocompleteRef.current = new google.maps.places.Autocomplete(
+      cityRef.current,
+      {
+        types: ["(cities)"],
+      }
+    );
+    autocompleteRef.current.addListener("place_changed", () => {
+      let place = autocompleteRef.current.getPlace();
+      if (!place) {
+        return;
+      }
+      if (!place.formatted_address) {
+        return;
+      }
+      let city = place.address_components.find((component) => {
+        return component.types.includes("locality");
+      });
+      let country = place.address_components.find((component) => {
+        return component.types.includes("country");
+      });
+      let location = `${city.long_name}, ${country.short_name}`;
+      setSearch(location);
+      props.setPlace(location);
+    });
+  }, []);
+
+  /* global google */
   return (
     <div className="container  mb-8 ">
       <div className="text-center sm:text-left  mb-8 md:mb-4">
@@ -23,12 +59,9 @@ function Searchbar(props) {
           type="search"
           style={{ marginRight: "1em" }}
           name="search"
-          autoComplete="off"
           placeholder="Search by city or zipcode"
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
+          ref={cityRef}
         />
-
         <button
           className="py-1.5 px-4 font-semibold rounded-lg shadow-md hover:bg-indigo-200 text-white bg-indigo-600 bg-opacity-25 dark:bg-gray-300 dark:bg-opacity-25 dark:hover:bg-gray-200 dark:hover:bg-opacity-25 active:bg-indigo-300 dark:active:bg-gray-300 focus:outline-none"
           type="submit"

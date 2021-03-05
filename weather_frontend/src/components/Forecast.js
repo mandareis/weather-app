@@ -3,8 +3,7 @@ import moment from "moment";
 
 function Forecast({ weather }) {
   return (
-    <div className="container inline-flex text-center place-content-center  space-x-5 ">
-      {/* lg:pt-10 xl:pt-16 */}
+    <div className="container inline-flex text-center place-content-center space-x-5 ">
       {weather.forecast.forecastday.map((day, idx) => {
         return (
           <div

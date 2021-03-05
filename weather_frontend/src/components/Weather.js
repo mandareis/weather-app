@@ -28,10 +28,10 @@ function Weather({ place }) {
   }, [place]);
 
   return (
-    <div>
+    <>
       {err || isLoading ? null : <WeatherDetails weather={weather} />}
       {err && <p>{err}</p>}
-    </div>
+    </>
   );
 }
 export default Weather;

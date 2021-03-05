@@ -1,9 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
 
-// figure out gap between input and Go button => DONE
-//style the X in the input field ??
-//@media for the searchbar when on smaller screens =? DONE
-//change text color to blue DONE
 function Searchbar(props) {
   const [search, setSearch] = useState(props.place);
   const cityRef = useRef(null);
@@ -43,7 +39,7 @@ function Searchbar(props) {
       setSearch(location);
       props.setPlace(location);
     });
-  }, []);
+  }, [props]);
 
   /* global google */
   return (

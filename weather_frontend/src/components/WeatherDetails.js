@@ -18,10 +18,11 @@ function WeatherDetails({ weather }) {
   }, [weather.location.name]);
   // work on fixing the size of container below
   return (
-    <div className="container lg:inline-flex text-sm md:text-md xl:text-lg ">
+    <div className="container  lg:space-x-4 2xl:space-x-16 lg:inline-flex text-sm md:text-md xl:text-lg ">
       <div
-        className="container mx-auto text-blue-800 border-2 border-white dark:text-white border-opacity-25 shadow-md bg-indigo-200 dark:bg-gray-500 dark:border-gray-600 
-        dark:border-opacity-25 md:w-3/5 rounded-lg p-8 space-y-2 mb-6 text-center"
+        className="container lg:w-3/5 text-blue-800 border-2 border-white dark:text-white border-opacity-25 shadow-md bg-indigo-200 dark:bg-gray-500 dark:border-gray-600 
+        dark:border-opacity-25 rounded-lg p-8 space-y-2 mb-6 text-center"
+        // style={{ minWidth: "500px", maxWidth: "500px" }}
       >
         <p className="font-bold">
           {weather.location.name}, {weather.location.country}
@@ -34,7 +35,7 @@ function WeatherDetails({ weather }) {
         </p>
 
         <div className="grid grid-rows-2 space-y-2">
-          <div className=" flex inline-flex justify-center space-x-4">
+          <div className="flex inline-flex justify-center space-x-4">
             <div>
               <span className="font-bold"> Current: </span>
               <p className="text-center">

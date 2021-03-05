@@ -41,16 +41,19 @@ function HourlyWeather({ weather }) {
   var width = "";
   switch (screenSize) {
     case "mega":
+      width = "900px";
+      height = "300px";
+      break;
     case "2xl":
       height = "300px";
       width = "800px";
       break;
     case "xl":
-      width = "500px";
+      width = "550px";
       height = "300px";
       break;
     case "lg":
-      width = "600px";
+      width = "670px";
       break;
     case "md":
       width = "550px";
@@ -72,7 +75,6 @@ function HourlyWeather({ weather }) {
           fill: "rgb(141, 156, 171)",
         },
       },
-      //   tickColor: "rgb(141, 156, 171)",
       legend: {
         text: {
           fill: "rgb(141, 156, 171)",

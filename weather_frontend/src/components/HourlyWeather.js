@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import moment from "moment";
 import { ResponsiveLine } from "@nivo/line";
+import { withRouter } from "react-router-dom";
 
 function getScreenSize() {
   if (matchMedia("(max-width: 640px)").matches) {
@@ -68,12 +69,8 @@ function HourlyWeather({ weather }) {
       throw new Error(`unknown screenSize: '${screenSize}'`);
   }
   const theme = {
+    textColor: "(141, 156, 171)",
     axis: {
-      pointLabel: {
-        text: {
-          fill: "rgb(141, 156, 171)",
-        },
-      },
       legend: {
         text: {
           fill: "rgb(141, 156, 171)",
@@ -89,7 +86,6 @@ function HourlyWeather({ weather }) {
           fill: "rgb(141, 156, 171)",
         },
       },
-      text: "rgb(141, 156, 171)",
     },
   };
 
@@ -154,7 +150,7 @@ function HourlyWeather({ weather }) {
         colors="rgb(141, 156, 171)"
         // pointColor="rgb(141, 156, 171)"
         // pointBorderWidth={2}
-        pointLabel="rgb(141, 156, 171)"
+        pointLabel="y"
         pointLabelYOffset={-12}
         isInteractive={false}
         useMesh={true}

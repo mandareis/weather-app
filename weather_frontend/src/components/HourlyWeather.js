@@ -69,7 +69,6 @@ function HourlyWeather({ weather }) {
   }
   const theme = {
     axis: {
-      fontSize: "14px",
       pointLabel: {
         text: {
           fill: "rgb(141, 156, 171)",
@@ -90,10 +89,10 @@ function HourlyWeather({ weather }) {
           fill: "rgb(141, 156, 171)",
         },
       },
+      text: "rgb(141, 156, 171)",
     },
   };
 
-  //have state passed here and add a ternary for light : dark
   return (
     <div className="container mx-auto" style={{ height: height, width: width }}>
       {/* FOR THE LOVE OF EVERYTHING HOLY DO NOT PUT */}
@@ -114,11 +113,9 @@ function HourlyWeather({ weather }) {
                   y: Math.round(h.temp_f),
                 };
               }),
-            // itemTextColor: "rgb(141, 156, 171)",
           },
         ]}
         margin={{ top: 40, right: 50, bottom: 40, left: 50 }}
-        // itemTextColor="rgb(141, 156, 171)"
         xScale={{ type: "point" }}
         yScale={{
           type: "linear",
@@ -151,15 +148,13 @@ function HourlyWeather({ weather }) {
         }}
         enableGridX={false}
         enableGridY={false}
-        pointSize={6}
+        pointSize={8}
         theme={theme}
+        enablePointLabel={true}
         colors="rgb(141, 156, 171)"
         // pointColor="rgb(141, 156, 171)"
-        // borderColor="rgb(141, 156, 171)"
-        enablePointLabel={true}
-        pointBorderWidth={6}
-        // pointBorderColor="rgb(141, 156, 171)"
-        pointLabel="y"
+        // pointBorderWidth={2}
+        pointLabel="rgb(141, 156, 171)"
         pointLabelYOffset={-12}
         isInteractive={false}
         useMesh={true}

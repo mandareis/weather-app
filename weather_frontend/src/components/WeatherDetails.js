@@ -16,13 +16,11 @@ function WeatherDetails({ weather }) {
   useEffect(() => {
     setDefaultBtn("hourly-btn");
   }, [weather.location.name]);
-  // work on fixing the size of container below
   return (
-    <div className="container  lg:space-x-4 2xl:space-x-16 lg:inline-flex text-sm md:text-md xl:text-lg ">
+    <div className="container lg:space-x-4 2xl:space-x-16 lg:inline-flex text-sm md:text-md xl:text-lg ">
       <div
         className="container lg:w-3/5 text-blue-800 border-2 border-white dark:text-white border-opacity-25 shadow-md bg-indigo-200 dark:bg-gray-500 dark:border-gray-600 
         dark:border-opacity-25 rounded-lg p-8 space-y-2 mb-6 text-center"
-        // style={{ minWidth: "500px", maxWidth: "500px" }}
       >
         <p className="font-bold">
           {weather.location.name}, {weather.location.country}

@@ -69,8 +69,13 @@ function HourlyWeather({ weather }) {
       throw new Error(`unknown screenSize: '${screenSize}'`);
   }
   const theme = {
-    textColor: "(141, 156, 171)",
+    textColor: "rgb(141, 156, 171)",
     axis: {
+      pointLabel: {
+        text: {
+          fill: "rgb(141, 156, 171)",
+        },
+      },
       legend: {
         text: {
           fill: "rgb(141, 156, 171)",
